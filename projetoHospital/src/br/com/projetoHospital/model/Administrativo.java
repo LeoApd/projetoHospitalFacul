@@ -22,6 +22,10 @@ public class Administrativo extends Pessoa{
 	}
 	
 	
+	public void detalhe() {
+		System.out.println(this.valorFixo);
+	}
+	
 	
 	
 }

@@ -19,7 +19,10 @@ public class Enfermeiro extends Pessoa {
 	public void setCargaHoraria(int cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
-
+	
+	public void detalhe() {
+		System.out.println(this.cargaHoraria);
+	}
 	
 
 	

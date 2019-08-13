@@ -83,5 +83,10 @@ public class Pessoa {
 		return 0.0;
 	}
 	
+	public void detalhe() {
+		System.out.println("");
+	}
+	
+	
 	
 }

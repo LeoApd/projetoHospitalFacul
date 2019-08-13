@@ -16,60 +16,47 @@ import br.com.projetoHospital.model.Pessoa;
 
 public class HospitalMain {
 	
+	static Scanner tc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 		
-		Scanner tc = new Scanner(System.in);
-		
 		ArrayList<Pessoa> repository = new ArrayList<>();
-		
-		int opcao = 0;
-
+		int opcao;
 		do {
-			
-			System.out.println("<----------- MENU DE OP플O ------------->\n");
-			System.out.println("1 - CADASTRAR MEDICO");
-			System.out.println("2 - CADASTRAR ENFERMEIRO");
-			System.out.println("3 - CADASTRAR ADMINISTRATIVO");
-			System.out.println("4 - LISTAR TODOS");
-			System.out.println("0 - SAIR\n");
-			
-			System.out.println("DIGITE A OP플O DESEJADA\n");
-			opcao = tc.nextInt();
+			opcao = menuPrincipal();
 			
 			switch (opcao) {
 				case 1:
 					cadastrar("MEDICO", repository);
 					break;
-					
-				case 2:
-					
+				case 2:					
 					cadastrar("ENFERMEIRO", repository);
-					break;
-					
+					break;					
 				case 3:
 					cadastrar("ADMINISTRATIVO", repository);
-					break;
-					
+					break;					
 				case 4:
-					System.out.println("-------------- LISTAR ---------------");
-					if(repository.size() < 1) {
-						System.out.println("SEM CADASTRO");
-					}else {
-						for(Pessoa p : repository) {
-							System.out.println("Nome " + p.getNome() + " Sobrenome " + p.getSobrenome());
-						}
-					}
+					listar(repository);
 					break;
-			
 				default:
 					System.out.println("OP플O INVALIDA");
 					break;
 				}
-			
 		} while (opcao != 0);
 		
 		tc.close();
-		
+	}
+	
+	public static int menuPrincipal() {
+		System.out.println("<----------- MENU DE OP플O ------------->\n");
+		System.out.println("1 - CADASTRAR MEDICO");
+		System.out.println("2 - CADASTRAR ENFERMEIRO");
+		System.out.println("3 - CADASTRAR ADMINISTRATIVO");
+		System.out.println("4 - LISTAR TODOS");
+		System.out.println("0 - SAIR\n");
+		System.out.println("DIGITE A OP플O DESEJADA\n");
+		int opcao = tc.nextInt();
+		return opcao;
 	}
 	
 	public static void cadastrar(String key, ArrayList<Pessoa> repository) {
@@ -107,21 +94,21 @@ public class HospitalMain {
 			if(key.equalsIgnoreCase("MEDICO")) {
 				System.out.println("Digite o Especialidade :");
 				String especialidade = tc.next();
-				Medico med = new Medico(nome, sobrenome, dtNascimento, cpf, especialidade);
+				Pessoa med = new Medico(nome, sobrenome, dtNascimento, cpf, especialidade);
 				
 				repository.add(med);
 				
 			}else if(key.equalsIgnoreCase("ENFERMEIRO")) {
 				System.out.println("Digite o carga horaria :");
 				int cargaHoraria = tc.nextInt();
-				Enfermeiro enf = new Enfermeiro(nome, sobrenome, dtNascimento, cpf, cargaHoraria);
+				Pessoa enf = new Enfermeiro(nome, sobrenome, dtNascimento, cpf, cargaHoraria);
 				
 				repository.add(enf);
 			}else if(key.equalsIgnoreCase("ADMINISTRATIVO")) {
 				System.out.println("Digite o valor fixo :");
 				long valorFixo = tc.nextLong();
 				
-				Administrativo adm = new Administrativo(nome, sobrenome, dtNascimento, cpf, valorFixo);
+				Pessoa adm = new Administrativo(nome, sobrenome, dtNascimento, cpf, valorFixo);
 				
 				repository.add(adm);
 			}
@@ -136,4 +123,18 @@ public class HospitalMain {
 		}
 	}
 
+	public static void listar(ArrayList<Pessoa> repository) {
+		System.out.println("-------------- LISTAR ---------------");
+		if(repository.size() < 1) {
+			System.out.println("SEM CADASTRO");
+		}else {
+			for(Pessoa p : repository) {
+				System.out.println("Nome " + p.getNome() + " Sobrenome " + p.getSobrenome());
+			}
+		}
+		
+	}
+	
+	
+	
 }
