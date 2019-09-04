@@ -2,6 +2,7 @@
 package br.com.projetoHospital.model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -85,6 +86,25 @@ public class Pessoa {
 	
 	public void detalhe() {
 		System.out.println("");
+	}
+	
+	public void listar(ArrayList<Pessoa> repository) {
+		System.out.println("-------------- LISTAR ---------------");
+		if(repository.size() < 1) {
+			System.out.println("SEM CADASTRO");
+		}else {
+			for(Pessoa p : repository) {
+				System.out.println("Nome " + p.getNome() + " Sobrenome " + p.getSobrenome());
+			}
+		}
+	}
+	
+	public static boolean validarRepository(ArrayList<Pessoa> repository) {
+		if(repository.size() >= 10) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	
