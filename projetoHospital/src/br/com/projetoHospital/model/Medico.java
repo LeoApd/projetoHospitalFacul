@@ -6,18 +6,19 @@ package br.com.projetoHospital.model;
 
 public class Medico extends Pessoa{
 
-	private String especialidade;
+	/*private String especialidade;*/
+	private Especialidade especialidade;
 
-	public Medico(String nome, String sobrenome, String dtNascimento, long cpf, String especialidade) {
+	public Medico(String nome, String sobrenome, String dtNascimento, long cpf, Especialidade especialidade) {
 		super(nome, sobrenome, dtNascimento, cpf);
 		this.especialidade = especialidade;
 	}
 
-	public String getEspecialidade() {
+	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
 	

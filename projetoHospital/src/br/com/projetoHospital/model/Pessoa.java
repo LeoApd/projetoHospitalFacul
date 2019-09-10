@@ -13,7 +13,7 @@ public class Pessoa {
 	private int idade;
 	private String dtNascimento;
 	private long cpf;
-
+	
 	public Pessoa(String nome, String sobrenome, String dtNascimento, long cpf) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;

@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 import br.com.projetoHospital.model.Pessoa;
 import br.com.projetoHospital.view.Menu;
+import br.com.projetoHospital.view.TelaCadastro;
 
 public class ControllerMain {
 	
 	Menu menu = new Menu();
-	ArrayList<Pessoa> repository = new ArrayList<>();
-	PessoaController cPessoa = new PessoaController();
+	
+	PessoaController pController = new PessoaController();
 	
 	public void startApp() {
 		int opcao;
@@ -32,13 +33,13 @@ public class ControllerMain {
 	public void cadastrofuncionario(int opcao) {
 		do {
 			switch (opcao) {
-				case 1: cPessoa.cadastro(1, repository);//medico
+				case 1: pController.salvarPessoa(1);//medico
 					opcao = menu.menuCadastroFuncionario();//escolher nova opção
 					break;
-				case 2: cPessoa.cadastro(2, repository);//enfermeiro
+				case 2: pController.salvarPessoa(2);//enfermeiro
 					opcao = menu.menuCadastroFuncionario();//escolher nova opção
 					break;
-				case 3: cPessoa.cadastro(3, repository);//administrativo
+				case 3: pController.salvarPessoa(3);//administrativo
 					opcao = menu.menuCadastroFuncionario();
 					break;
 				default:
